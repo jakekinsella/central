@@ -1,0 +1,11 @@
+(library
+  (name central)
+  (libraries
+    magic
+    model
+    database
+    dream
+    yojson
+    ppx_deriving_yojson.runtime
+    jose)
+  (preprocess (pps lwt_ppx ppx_deriving_yojson)))

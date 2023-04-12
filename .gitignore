@@ -1,0 +1,15 @@
+_build/
+.DS_Store
+*.sqlite
+*.key
+*.crt
+data/
+logfile
+tmp/
+secrets.env
+database.env
+
+.terraform*
+*.tfstate*
+
+ignore/

@@ -1,0 +1,12 @@
+(library
+  (name database)
+  (libraries
+    magic
+    model
+    caqti
+    caqti-lwt
+    caqti-driver-postgresql
+    ppx_rapper_lwt
+    safepass
+    dream)
+  (preprocess (pps lwt_ppx ppx_rapper)))
