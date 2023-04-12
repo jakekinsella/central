@@ -21,7 +21,7 @@ Barebones, totally local development environment.
 `initdb data`  
 `pg_ctl -D data -l logfile start`  
 `createdb central`  
-`cd server && make install`  
+`make install`  
 `cd server && make migrate`  
   
 Create `database.env` at the root of the repository:
@@ -35,6 +35,7 @@ PGDATABASE=central
 
 ### Run
 `cd server && make start`  
+`cd ui && make start`
   
 Navigate to `http://localhost:3001`  
 
