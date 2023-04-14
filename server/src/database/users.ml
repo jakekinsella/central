@@ -40,6 +40,16 @@ let by_email_query = [%rapper
   syntax_off
 ](make)
 
+let by_id_query = [%rapper
+  get_opt {sql|
+    SELECT @string{users.id}, @string{users.email}, @string{users.password}
+    FROM users
+    WHERE id = %string{id}
+  |sql}
+  function_out
+  syntax_off
+](make)
+
 let migrate connection =
   let query = migrate_query() in
     query connection |> Error.Database.or_print
@@ -50,6 +60,10 @@ let rollback connection =
 
 let by_email email connection =
   let query = by_email_query ~email: email in
+    query connection |> Error.Database.or_error_opt
+
+let by_id id connection =
+  let query = by_id_query ~id: id in
     query connection |> Error.Database.or_error_opt
 
 let create { id; email; password } connection =

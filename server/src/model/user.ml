@@ -43,4 +43,7 @@ module Frontend = struct
     id : string;
     email : string;
   } [@@deriving yojson]
+
+  let to_frontend ({ id; email; _ } : Internal.t) =
+    { id = id; email = email }
 end
