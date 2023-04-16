@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 import Card from './common/Card'
@@ -44,10 +44,21 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const onSubmit = (event: any) => {
     event.preventDefault();
     Users.login(email, password)
-      .then(() => navigate('/'))
+      .then(() => {
+        const redirect = searchParams.get('redirect');
+
+        if (redirect === null) {
+          navigate('/');
+        } else {
+          window.location.href = redirect;
+        }
+      })
       .catch(() => setError('Invalid email/password'));
   }
 

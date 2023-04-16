@@ -41,3 +41,4 @@ Navigate to `http://localhost:3001`
 
 ## todo
  - everything
+ - use real jwt secret
