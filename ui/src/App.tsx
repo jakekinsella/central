@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 
 import Login from './components/Login';
 
-import './global-styles';
 import { colors } from './constants';
 
 const Root = styled.div`

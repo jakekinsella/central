@@ -9,3 +9,5 @@ export { Menu } from './components/Menu';
 export { Submit } from './components/Submit';
 export { Textbox } from './components/Textbox';
 export { Redirect } from './components/Redirect';
+
+import './global-styles';
