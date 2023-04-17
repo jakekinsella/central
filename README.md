@@ -2,11 +2,20 @@
 
 Central auth server + component library for my personal apps.  
 
-## Local Development
+## common
+```
+cd common && make install
+cd common && make clean
+cd common && make react-build
+```
+
+## server
+
+### Local Development
 
 Barebones, totally local development environment.  
 
-### Dependencies
+#### Dependencies
  - opam
    - `brew install opam`
  - [dune](https://dune.build)
@@ -17,7 +26,7 @@ Barebones, totally local development environment.
  - openssl
    - `brew install openssl`
 
-### Initial Setup
+#### Initial Setup
 `initdb data`  
 `pg_ctl -D data -l logfile start`  
 `createdb central`  
@@ -33,7 +42,7 @@ PGPORT=5432
 PGDATABASE=central
 ```
 
-### Run
+#### Run
 `cd server && make start`  
 `cd ui && make start`
   

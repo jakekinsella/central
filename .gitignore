@@ -13,3 +13,4 @@ database.env
 *.tfstate*
 
 ignore/
+dist/
