@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import styled from '@emotion/styled';
 
-import Card from './common/Card'
-import Submit from './common/Submit'
-import Textbox from './common/Textbox'
-
-import Users from '../api/users';
+import { Card, Submit, Textbox, Users } from 'central';
 
 const Container = styled.div`
   width: 100%;

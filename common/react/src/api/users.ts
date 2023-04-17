@@ -4,7 +4,7 @@ interface LoginResponse {
   token: string;
 }
 
-const Users = {
+export const Users = {
   async login(email: string, password: string): Promise<void> {
     const response = await Central.request(
       "/users/login",
@@ -38,5 +38,3 @@ const Users = {
     }
   }
 }
-
-export default Users;

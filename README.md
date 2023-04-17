@@ -2,14 +2,14 @@
 
 Central auth server + component library for my personal apps.  
 
-## common
+## Common
 ```
 cd common && make install
 cd common && make clean
 cd common && make react-build
 ```
 
-## server
+## Server
 
 ### Local Development
 
@@ -48,6 +48,11 @@ PGDATABASE=central
   
 Navigate to `http://localhost:3001`  
 
+### Other
+*Refresh central dependencies:*  
+`cd ui && make refresh start`  
+
 ## todo
  - everything
+ - scope token cookie to just domain
  - use real jwt secret

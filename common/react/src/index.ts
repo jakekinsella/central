@@ -1,6 +1,6 @@
 export * as Constants from './constants';
 
-export * as Users from './api/users';
+export { Users } from './api/users';
 export * as Api from './api/util';
 
 export { Card } from './components/Card';
