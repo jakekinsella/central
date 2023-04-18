@@ -9,5 +9,6 @@
     uuidm
     safepass
     jose
-    ptime.clock.os)
+    ptime.clock.os
+    common)
   (preprocess (pps ppx_deriving_yojson lwt_ppx)))
