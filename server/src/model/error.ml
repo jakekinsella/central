@@ -1,4 +1,4 @@
-open Magic
+open Common.Magic
 
 module Frontend = struct
   type t =

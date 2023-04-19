@@ -1,8 +1,8 @@
 (library
   (name database)
   (libraries
-    magic
     model
+    common
     caqti
     caqti-lwt
     caqti-driver-postgresql

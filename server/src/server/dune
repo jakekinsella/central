@@ -1,9 +1,9 @@
 (library
   (name central)
   (libraries
-    magic
     model
     database
+    common
     dream
     yojson
     ppx_deriving_yojson.runtime

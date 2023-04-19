@@ -8,6 +8,7 @@ install:
 
 build:
 	dune build
+	opam pin add -yn common .
 	opam install common
 
 clean:
