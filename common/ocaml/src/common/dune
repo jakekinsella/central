@@ -1,4 +1,8 @@
 (library
   (name common)
   (public_name common)
-  (libraries magic))
+  (libraries
+    magic
+    api
+    middleware)
+  (preprocess (pps ppx_deriving_yojson lwt_ppx)))

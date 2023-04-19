@@ -1,0 +1,14 @@
+(library
+  (name api)
+  (libraries
+    magic
+    cohttp-lwt-unix
+    cohttp-async
+    yojson
+    ppx_deriving_yojson.runtime
+    uuidm
+    safepass
+    jose
+    ptime.clock.os)
+  (preprocess (pps ppx_deriving_yojson lwt_ppx))
+  (package common))

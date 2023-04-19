@@ -1,5 +1,3 @@
-open Common.Magic
-
 module Frontend = struct
   type t =
     | InternalServerError of string
