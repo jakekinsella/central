@@ -3,17 +3,6 @@ open Common.Api
 
 open Response
 
-let json ?(status = `OK) response encoder =
-  response |> encoder |> Yojson.Safe.to_string |> Dream.json ~status: status
-
-let throw_error e = match e with
-  | Error.Frontend.InternalServerError e ->
-    json ~status: `Internal_Server_Error { message = e } status_response_to_yojson
-  | Error.Frontend.NotFound ->
-    json ~status: `Not_Found { message = "Not found" } status_response_to_yojson
-  | Error.Frontend.BadRequest ->
-    json ~status: `Bad_Request { message = "Bad request" } status_response_to_yojson
-
 let jwk =
   Jose.Jwk.make_oct "secret_key"
 

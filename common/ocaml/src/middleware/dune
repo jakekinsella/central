@@ -1,6 +1,7 @@
 (library
   (name middleware)
   (libraries
+    api
     dream
     yojson
     ppx_deriving_yojson.runtime

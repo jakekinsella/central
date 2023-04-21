@@ -6,7 +6,7 @@ Central auth server + component library for my personal apps.
 ```
 cd common && make install
 cd common && make clean
-cd common && make react-build
+cd common && make react-build ocaml-build
 ```
 
 ## Server

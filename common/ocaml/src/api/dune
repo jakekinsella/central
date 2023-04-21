@@ -2,6 +2,7 @@
   (name api)
   (libraries
     magic
+    dream
     cohttp-lwt-unix
     cohttp-async
     yojson
