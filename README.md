@@ -48,11 +48,52 @@ PGDATABASE=central
   
 Navigate to `http://localhost:3001`  
 
-### Other
+#### Other
 *Refresh central dependencies:*  
 `cd ui && make refresh start`  
 
-## todo
+### Local Deploy
+Deployed as a Kubernetes cluster.  
+
+#### Dependencies
+ - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+ - [minikube](https://minikube.sigs.k8s.io/docs/)
+ - [dune](https://dune.build)
+ - [yarn](https://yarnpkg.com)
+
+#### Initial Setup
+
+`minikube start`  
+`eval $(minikube docker-env)`  
+`minikube addons enable ingress`  
+`minikube tunnel`  
+  
+Create a certificate called `cert`:
+```
+openssl req -newkey rsa:4096 \
+            -x509 \
+            -sha256 \
+            -days 3650 \
+            -nodes \
+            -out cert.crt \
+            -keyout cert.key
+```
+  
+Create `secrets.env` in the root of the repo:
+```
+USER_PASSWORD=???
+```
+
+#### Build+Deploy
+`make local-publish`  
+`make local-deploy`  
+
+... some amount of waiting ...  
+`kubectl get pods` should show the containers starting up  
+  
+Navigate to `https://localhost`  
+
+## TODO
  - everything
  - scope token cookie to just domain
  - use real jwt secret
