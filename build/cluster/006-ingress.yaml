@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: server-ingress
+  name: central-ingress
 spec:
   tls:
   - hosts:
@@ -13,20 +13,20 @@ spec:
       paths:
         - backend:
             service:
-              name: server
+              name: central-server
               port:
                 number: 8080
           path: /api
           pathType: Prefix
         - backend:
             service:
-              name: ui
+              name: central-ui
               port:
                 number: 3001
           path: /
           pathType: Prefix
   defaultBackend:
     service:
-      name: ui
+      name: central-ui
       port:
         number: 3001

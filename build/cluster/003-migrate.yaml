@@ -1,12 +1,12 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: migrate
+  name: central-migrate
 spec:
   template:
     spec:
       containers:
-        - name: migrate
+        - name: central-migrate
           image: $IMAGE
           envFrom:
             - configMapRef:
@@ -20,4 +20,11 @@ spec:
           image: postgres:13.4
           imagePullPolicy: IfNotPresent
           command: ["/bin/sh", "-c", "pg_isready -h postgres -p 5432 && echo $?"]
+        - name: create-database
+          image: postgres:13.4
+          envFrom:
+            - configMapRef:
+                name: config
+          imagePullPolicy: IfNotPresent
+          command: ["/bin/sh", "-c", "createdb -h postgres -p 5432 central && echo $?"]
       restartPolicy: OnFailure

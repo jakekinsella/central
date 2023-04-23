@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: server
+  name: central-server
 spec:
   selector:
-    app: server
+    app: central-server
   ports:
     - port: 8080
       targetPort: 8080
@@ -13,19 +13,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: server
+  name: central-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: server
+      app: central-server
   template:
     metadata:
       labels:
-        app: server
+        app: central-server
     spec:
       containers:
-        - name: server
+        - name: central-server
           image: $IMAGE
           ports:
             - containerPort: 8080

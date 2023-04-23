@@ -3,9 +3,9 @@ kind: ConfigMap
 metadata:
   name: config
   labels:
-    app: reader
+    app: central
 data:
-  PGDATABASE: reader
+  PGDATABASE: central
   PGHOST: postgres
   PGPORT: "5432"
   PGUSER: jakekinsella
