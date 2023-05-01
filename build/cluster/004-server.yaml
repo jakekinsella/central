@@ -31,7 +31,7 @@ spec:
             - containerPort: 8080
           envFrom:
             - configMapRef:
-                name: config
+                name: central-config
           imagePullPolicy: $IMAGE_POLICY
           command: ["/bin/sh", "-c", "./server/main.exe"]
       initContainers:

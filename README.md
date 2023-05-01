@@ -67,6 +67,7 @@ Deployed as a Kubernetes cluster.
 `eval $(minikube docker-env)`  
 `minikube addons enable ingress`  
 `minikube tunnel`  
+`sudo sh -c 'echo "127.0.0.1       central.localhost" >> /etc/hosts'`
   
 Create a certificate called `cert`:
 ```
@@ -91,9 +92,10 @@ USER_PASSWORD=???
 ... some amount of waiting ...  
 `kubectl get pods` should show the containers starting up  
   
-Navigate to `https://localhost`  
+Navigate to `https://central.localhost/login`  
 
 ## TODO
- - everything
+ - deploy
+ - build base docker images with common package installed
  - scope token cookie to just domain
  - use real jwt secret

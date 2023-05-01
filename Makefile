@@ -8,7 +8,10 @@ build:
 clean:
 	cd server && make clean
 
-local-publish:
+common-publish:
+	make -f build/Makefile common-publish
+
+local-publish: common-publish
 	make -f build/local/Makefile publish
 
 local-deploy:
@@ -32,7 +35,7 @@ aws-build:
 aws-teardown:
 	cd build/aws && make teardown
 
-cluster-publish:
+cluster-publish: common-publish
 	make -f build/Makefile publish
 
 cluster-deploy:

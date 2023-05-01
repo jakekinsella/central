@@ -10,7 +10,7 @@ spec:
           image: $IMAGE
           envFrom:
             - configMapRef:
-                name: config
+                name: central-config
             - secretRef:
                 name: reader-secrets
           imagePullPolicy: $IMAGE_POLICY
@@ -24,7 +24,7 @@ spec:
           image: postgres:13.4
           envFrom:
             - configMapRef:
-                name: config
+                name: central-config
           imagePullPolicy: IfNotPresent
-          command: ["/bin/sh", "-c", "createdb -h postgres -p 5432 central && echo $?"]
+          command: ["/bin/sh", "-c", "createdb -h postgres -p 5432 central || echo 0"]
       restartPolicy: OnFailure
