@@ -11,7 +11,7 @@ clean:
 common-publish:
 	make -f build/Makefile common-publish
 
-local-publish: common-publish
+local-publish:
 	make -f build/local/Makefile publish
 
 local-deploy:

@@ -1,4 +1,5 @@
 import { Central } from './util';
+import { domain } from '../constants';
 
 interface LoginResponse {
   token: string;
@@ -19,7 +20,7 @@ export const Users = {
 
     if (response.ok) {
       const json: LoginResponse = await response.json();
-      document.cookie = `token=${json.token}`;
+      document.cookie = `token=${json.token}; domain=.${domain}; path=/`;
     } else {
       throw new Error('Access denied');
     }

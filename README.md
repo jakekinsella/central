@@ -86,6 +86,7 @@ USER_PASSWORD=???
 ```
 
 #### Build+Deploy
+`make common-publish`  
 `make local-publish`  
 `make local-deploy`  
 
@@ -94,8 +95,60 @@ USER_PASSWORD=???
   
 Navigate to `https://central.localhost/login`  
 
+## Cloud Deploy
+Deploy a single node Kubernetes cluster in AWS.  
+
+### Dependencies
+ - [Packer](http://packer.io)
+ - [Terraform](https://www.terraform.io)
+
+### Initial Setup
+
+Create `secrets.env` in the root of the repo:
+```
+USER_PASSWORD=???
+```
+  
+Environment variables:
+```
+export AWS_ACCESS_KEY_ID=???
+export AWS_SECRET_ACCESS_KEY=???
+export AWS_ACCOUNT_ID=???
+export AWS_DEFAULT_REGION=us-east-1
+```
+  
+Initialize the build depedencies:  
+`make aws-init`
+
+### AWS Setup
+Build the AMI:  
+`make aws-image`
+
+Set up the ECR repo:  
+`make aws-repo`
+
+### AWS Build
+Manually create+install an EC2 Key Pair in the AWS Console called "reader".  
+
+Build the resources:  
+`make aws-build`  
+  
+Note the value of `control_plane_ip`.  
+  
+... wait _awhile_ ...  
+
+### Cluster Deploy
+
+Export the Control Plane IP:  
+`export CONTROL_PLANE_IP=???`  
+
+Deploy the cluster:  
+`make cluster-publish`  
+`make cluster-deploy VERSION=???`  
+
+... wait \~10minutes time (until `sudo kubectl get pods` shows all the containers running) ...  
+
 ## TODO
- - deploy
- - build base docker images with common package installed
- - scope token cookie to just domain
+ - cloud deploy
  - use real jwt secret
+ - multi-node kubernetes cluster
