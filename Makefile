@@ -35,7 +35,7 @@ aws-build:
 aws-teardown:
 	cd build/aws && make teardown
 
-cluster-publish: common-publish
+cluster-publish:
 	make -f build/Makefile publish
 
 cluster-deploy:

@@ -149,6 +149,5 @@ Deploy the cluster:
 ... wait \~10minutes time (until `sudo kubectl get pods` shows all the containers running) ...  
 
 ## TODO
- - cloud deploy
  - use real jwt secret
  - multi-node kubernetes cluster

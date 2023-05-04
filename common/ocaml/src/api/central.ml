@@ -1,7 +1,7 @@
 open Lwt
 open Cohttp_lwt_unix
 
-let host = (Sys.getenv_opt "CENTRAL_BASE" |> Option.value ~default: "https://central.jakekinsella.com/api")
+let host = (Sys.getenv_opt "CENTRAL_BASE" |> Option.value ~default: "http://central-server:8080/api")
 
 module Model = struct
   module User = struct
