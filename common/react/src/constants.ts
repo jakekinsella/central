@@ -12,6 +12,12 @@ const init = () : EndpointDefinition => {
         root: "https://reader.localhost", 
         api: "https://reader.localhost/api"
       },
+      notes: {
+        root: "https://notes.localhost"
+      },
+      blob: {
+        api: "https://blob.localhost/api"
+      },
       central: {
         root: "https://central.localhost", 
         api: "https://central.localhost/api"
@@ -24,6 +30,12 @@ const init = () : EndpointDefinition => {
         root: "https://reader.jakekinsella.com", 
         api: "https://reader.jakekinsella.com/api"
       },
+      notes: {
+        root: "https://notes.jakekinsella.com"
+      },
+      blob: {
+        api: "https://blob.jakekinsella.com"
+      },
       central: {
         root: "https://central.jakekinsella.com", 
         api: "https://central.jakekinsella.com/api"
@@ -35,6 +47,12 @@ const init = () : EndpointDefinition => {
       reader: {
         root: "http://localhost:3000", 
         api: "http://localhost:2000/api"
+      },
+      notes: {
+        root: "http://notes:3002", 
+      },
+      blob: {
+        api: "http://localhost:2002/api"
       },
       central: {
         root: "http://localhost:3001", 
