@@ -45,11 +45,11 @@ let routes = [
                   json { user = User.Frontend.to_frontend user } user_response_to_yojson
                 | Error e ->
                   let message = Error.Database.to_string e in
-                    Dream.log "[/users/validate] token: %s - lookup failed with %s" token message;
+                    Dream.log "[/users/validate] lookup failed with %s" message;
                   throw_error Error.Frontend.NotFound)
             | Error _ ->
-              Dream.log "[/users/validate] token: %s - invalid token" token;
-              throw_error Error.Frontend.NotFound)
+              Dream.log "[/users/validate] invalid token";
+              throw_error Error.Frontend.Forbidden)
         | _ ->
           throw_error Error.Frontend.BadRequest
     );

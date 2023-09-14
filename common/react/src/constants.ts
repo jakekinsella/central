@@ -1,11 +1,13 @@
 interface EndpointDefinition {
   domain: string;
   reader: { root: string, api: string };
+  notes: { root: string };
+  blob: { api: string };
   central: { root: string, api: string };
 }
 
 const init = () : EndpointDefinition => {
-  if (window.location.host.includes("localhost")) {
+  if (window.location.protocol === "https:" && window.location.host.includes("localhost")) {
     return {
       domain: "localhost",
       reader: {
@@ -49,7 +51,7 @@ const init = () : EndpointDefinition => {
         api: "http://localhost:2000/api"
       },
       notes: {
-        root: "http://notes:3002", 
+        root: "http://localhost:8280", 
       },
       blob: {
         api: "http://localhost:2002/api"
@@ -62,7 +64,7 @@ const init = () : EndpointDefinition => {
   }
 }
 
-export const { domain, reader, central } = init();
+export const { domain, reader, notes, blob, central } = init();
 
 export const colors = {
   black: '#444',

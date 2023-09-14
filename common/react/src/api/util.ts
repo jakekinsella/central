@@ -1,4 +1,5 @@
-import { reader, central } from '../constants';
+import { reader, blob, central } from '../constants';
+import { Users } from './users';
 
 const apiRequest = async (uri: string, options: any) => {
   const response = await fetch(uri, options);
@@ -12,6 +13,18 @@ const apiRequest = async (uri: string, options: any) => {
 export namespace Reader {
   export const request = async (uri: string, options: any) => {
     return apiRequest(`${reader.api}${uri}`, options);
+  }
+}
+
+export namespace Blob {
+  export const request = async (uri: string, options: any) => {
+    return apiRequest(`${blob.api}${uri}`, {
+      ...options,
+      headers: {
+        'Content-Type': 'application/json',
+        'authentication': `Bearer ${Users.token()}`
+      }
+    });
   }
 }
 
