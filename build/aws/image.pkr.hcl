@@ -53,7 +53,9 @@ build {
       "sudo snap install --classic certbot",
       "sudo ln -s /snap/bin/certbot /usr/bin/certbot",
 
-      "curl -sfL https://get.k3s.io > install.sh"
+      "curl -sfL https://get.k3s.io > install.sh",
+
+      "sudo ufw disable"
     ]
   }
 }

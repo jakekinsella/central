@@ -36,7 +36,7 @@ const init = () : EndpointDefinition => {
         root: "https://notes.jakekinsella.com"
       },
       blob: {
-        api: "https://blob.jakekinsella.com"
+        api: "https://blob.jakekinsella.com/api"
       },
       central: {
         root: "https://central.jakekinsella.com", 
