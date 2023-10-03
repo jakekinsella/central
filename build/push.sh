@@ -8,6 +8,8 @@ export IMAGE="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/central:
 export UI_IMAGE="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/central_ui:$VERSION"
 export IMAGE_POLICY="IfNotPresent"
 export HOST="central.jakekinsella.com"
+export NODE_SELECTOR="      nodeSelector:
+        node-role.kubernetes.io/control-plane: \"true\""
 
 rm -rf tmp/
 mkdir -p tmp/build/cluster/

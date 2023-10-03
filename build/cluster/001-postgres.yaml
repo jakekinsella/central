@@ -76,3 +76,4 @@ spec:
         - name: postgres
           persistentVolumeClaim:
             claimName: postgres-claim
+$NODE_SELECTOR
