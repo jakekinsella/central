@@ -23,7 +23,7 @@ module Internal = struct
 
   let sign jwk { id = id; email = _; password = _ } =
     let header = Jose.Header.make_header ~typ:"JWT" jwk in
-    let expires = int_of_float(Unix.time()) + (60 * 60) in (* 1 hour *)
+    let expires = int_of_float(Unix.time()) + (60 * 60 * 24) in (* 24 hours *)
     let payload = { user_id = id; expires = expires } |> payload_to_yojson in
       Jose.Jwt.sign ~header ~payload jwk |> Result.map(Jose.Jwt.to_string) |> Result.value ~default: ""
 
