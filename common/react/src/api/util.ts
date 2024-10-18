@@ -1,4 +1,4 @@
-import { reader, blob, central } from '../constants';
+import { reader, blob, budgeting, central } from '../constants';
 import { Users } from './users';
 
 const apiRequest = async (uri: string, options: any) => {
@@ -23,6 +23,18 @@ export namespace Blob {
       headers: {
         'Content-Type': 'application/json',
         'authentication': `Bearer ${Users.token()}`
+      }
+    });
+  }
+}
+
+export namespace Budgeting {
+  export const request = async (uri: string, options: any) => {
+    return apiRequest(`${budgeting.api}${uri}`, {
+      ...options,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': Users.token()
       }
     });
   }

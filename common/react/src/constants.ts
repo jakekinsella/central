@@ -2,6 +2,7 @@ interface EndpointDefinition {
   domain: string;
   reader: { root: string, api: string };
   notes: { root: string };
+  search: { root: string };
   budgeting: { root: string, api: string };
   blob: { api: string };
   central: { root: string, api: string };
@@ -18,9 +19,12 @@ const init = () : EndpointDefinition => {
       notes: {
         root: "https://notes.localhost"
       },
+      search: {
+        root: "https://search.localhost"
+      },
       budgeting: {
         root: "https://budgeting.localhost",
-        api: "https://budgeting.localhost/api"
+        api: "https://budget.localhost"
       },
       blob: {
         api: "https://blob.localhost/api"
@@ -40,9 +44,12 @@ const init = () : EndpointDefinition => {
       notes: {
         root: "https://notes.jakekinsella.com"
       },
+      search: {
+        root: "https://search.jakekinsella.com"
+      },
       budgeting: {
         root: "https://budgeting.jakekinsella.com", 
-        api: "https://budgeting.jakekinsella.com/api"
+        api: "https://budgeting.jakekinsella.com"
       },
       blob: {
         api: "https://blob.jakekinsella.com/api"
@@ -62,9 +69,12 @@ const init = () : EndpointDefinition => {
       notes: {
         root: "http://localhost:8280", 
       },
+      search: {
+        root: "http://localhost:3000", 
+      },
       budgeting: {
         root: "http://localhost:8280",
-        api: "https://budgeting.localhost/api"
+        api: "http://budget.localhost"
       },
       blob: {
         api: "http://localhost:2002/api"
@@ -77,7 +87,7 @@ const init = () : EndpointDefinition => {
   }
 }
 
-export const { domain, reader, notes, budgeting, blob, central } = init();
+export const { domain, reader, notes, search, budgeting, blob, central } = init();
 
 export const colors = {
   black: '#444',
