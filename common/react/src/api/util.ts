@@ -1,7 +1,7 @@
 import { reader, blob, budgeting, central } from '../constants';
 import { Users } from './users';
 
-const apiRequest = async (uri: string, options: any) => {
+export const apiRequest = async (uri: string, options: any) => {
   const response = await fetch(uri, options);
   if (response.status === 403) {
     window.location.href = "/login";
