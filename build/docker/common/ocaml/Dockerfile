@@ -3,6 +3,7 @@ FROM ocaml/opam:alpine-ocaml-4.14
 WORKDIR /home/opam/common
 
 ADD common/ocaml/common.opam .
+ENV OPAMSOLVERTIMEOUT=1200
 RUN opam pin add -yn common . && \
     opam depext common && \
     opam install --deps-only common
