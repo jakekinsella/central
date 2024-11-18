@@ -13,7 +13,7 @@ common-publish:
 	make -f build/Makefile common-publish
 
 common-publish-arm:
-	make -f build/Makefile common-publish
+	make -f build/Makefile common-publish-arm
 
 local-publish:
 	make -f build/local/Makefile publish
