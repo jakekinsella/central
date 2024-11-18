@@ -32,6 +32,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: central-config
+            - secretRef:
+                name: reader-secrets
           imagePullPolicy: $IMAGE_POLICY
           command: ["/bin/sh", "-c", "./server/main.exe"]
       initContainers:
