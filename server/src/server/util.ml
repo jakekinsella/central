@@ -4,7 +4,7 @@ open Common.Api
 open Response
 
 let jwk =
-  Jose.Jwk.make_oct "secret_key"
+  Jose.Jwk.make_oct (Sys.getenv "SECRET_KEY")
 
 module Middleware = struct
   let user_id =

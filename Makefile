@@ -2,6 +2,7 @@ install:
 	cd server && make install
 	cd ui && make install
 
+.PHONY: build
 build:
 	cd server && make build
 
@@ -9,6 +10,9 @@ clean:
 	cd server && make clean
 
 common-publish:
+	make -f build/Makefile common-publish
+
+common-publish-arm:
 	make -f build/Makefile common-publish
 
 local-publish:

@@ -107,6 +107,7 @@ Deploy a single node Kubernetes cluster in AWS.
 Create `secrets.env` in the root of the repo:
 ```
 USER_PASSWORD=???
+SECRET_KEY=???
 ```
   
 Environment variables:
@@ -150,5 +151,4 @@ Deploy the cluster:
 ... wait \~10minutes time (until `sudo kubectl get pods` shows all the containers running) ...  
 
 ## TODO
- - use real jwt secret
- - multi-node kubernetes cluster
+ - ???
