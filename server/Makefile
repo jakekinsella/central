@@ -10,13 +10,13 @@ build:
 	dune build
 
 start: build
-	export `cat ../database.env` && PORT=2001 dune exec central
+	export `cat ../database.env` && export `cat ../secrets.env` && PORT=2001 dune exec central
 
 rollback: build
-	export `cat ../database.env` && dune exec database rollback
+	export `cat ../database.env` && export `cat ../secrets.env` && dune exec database rollback
 
 migrate: build
-	export `cat ../database.env` && dune exec database migrate
+	export `cat ../database.env` && export `cat ../secrets.env` && dune exec database migrate
 
 clean:
 	rm -rf _build

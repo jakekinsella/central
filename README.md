@@ -4,9 +4,7 @@ Central auth server + component library for my personal apps.
 
 ## Common
 ```
-cd common && make install
-cd common && make clean
-cd common && make react-build ocaml-build
+cd common && make install clean react-build ocaml-build
 ```
 
 ## Server
@@ -41,6 +39,12 @@ PGHOST=localhost
 PGPORT=5432
 PGDATABASE=central
 ```
+  
+Create `secrets.env` in the root of the repo:
+```
+USER_PASSWORD=???
+SECRET_KEY=???
+```
 
 #### Run
 `cd server && make start`  
@@ -63,10 +67,12 @@ Deployed as a Kubernetes cluster.
 
 #### Initial Setup
 
+`minikube config set cpus 4`
+`minikube config set memory 8192`
 `minikube start`  
 `eval $(minikube docker-env)`  
 `minikube addons enable ingress`  
-`minikube tunnel`  
+`minikube tunnel &`  
 `sudo sh -c 'echo "127.0.0.1       central.localhost" >> /etc/hosts'`
   
 Create a certificate called `cert`:
@@ -83,6 +89,7 @@ openssl req -newkey rsa:4096 \
 Create `secrets.env` in the root of the repo:
 ```
 USER_PASSWORD=???
+SECRET_KEY=???
 ```
 
 #### Build+Deploy
