@@ -25,12 +25,6 @@ Barebones, totally local development environment.
    - `brew install openssl`
 
 #### Initial Setup
-`initdb data`  
-`pg_ctl -D data -l logfile start`  
-`createdb central`  
-`make install`  
-`cd server && make migrate`  
-  
 Create `database.env` at the root of the repository:
 ```
 PGUSER=jakekinsella
@@ -45,6 +39,12 @@ Create `secrets.env` in the root of the repo:
 USER_PASSWORD=???
 SECRET_KEY=???
 ```
+  
+`initdb data`  
+`pg_ctl -D data -l logfile start`  
+`createdb central`  
+`make install`  
+`cd server && make migrate`  
 
 #### Run
 `cd server && make start`  
@@ -68,7 +68,7 @@ Deployed as a Kubernetes cluster.
 #### Initial Setup
 
 `minikube config set cpus 4`
-`minikube config set memory 8192`
+`minikube config set memory 7959`
 `minikube start`  
 `eval $(minikube docker-env)`  
 `minikube addons enable ingress`  
@@ -93,6 +93,7 @@ SECRET_KEY=???
 ```
 
 #### Build+Deploy
+`eval $(minikube docker-env)`
 `make common-publish`  
 `make local-publish`  
 `make local-deploy`  
