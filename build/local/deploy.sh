@@ -15,9 +15,11 @@ spec:
     - port: 5432
       targetPort: 5432
   type: LoadBalancer"
-export HOST="central.localhost"
+export HOST="central.cluster.local"
 
+kubectl delete secret reader-secrets
 kubectl create secret generic reader-secrets --from-env-file secrets.env
+kubectl delete secret reader-cert
 kubectl create secret tls reader-cert --key=cert.key --cert=cert.crt
 
 for f in build/cluster/*.yaml; do envsubst < $f | kubectl apply -f -; done

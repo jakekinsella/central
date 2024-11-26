@@ -3,6 +3,7 @@ _build/
 *.sqlite
 *.key
 *.crt
+*.pem
 data/
 logfile
 tmp/

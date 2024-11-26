@@ -70,10 +70,12 @@ Deployed as a Kubernetes cluster.
 `minikube config set cpus 4`
 `minikube config set memory 7959`
 `minikube start`  
+`sudo sh -c 'echo "127.0.0.1       central.cluster.local" >> /etc/hosts'`  
+  
+Start the ingess tunnel:
 `eval $(minikube docker-env)`  
 `minikube addons enable ingress`  
-`minikube tunnel &`  
-`sudo sh -c 'echo "127.0.0.1       central.localhost" >> /etc/hosts'`
+`minikube tunnel`  
   
 Create a certificate called `cert`:
 ```
@@ -83,7 +85,9 @@ openssl req -newkey rsa:4096 \
             -days 3650 \
             -nodes \
             -out cert.crt \
-            -keyout cert.key
+            -keyout cert.key \
+            -subj "/C=US/ST=MA/O=Jake Kinsella/OU=cluster.local/CN=cluster.local" \
+            -addext "subjectAltName=DNS:cluster.local,DNS:*.cluster.local"
 ```
   
 Create `secrets.env` in the root of the repo:

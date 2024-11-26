@@ -9,29 +9,29 @@ interface EndpointDefinition {
 }
 
 const init = () : EndpointDefinition => {
-  if (window.location.protocol === "https:" && window.location.host.includes("localhost")) {
+  if (window.location.protocol === "https:" && window.location.host.includes("cluster.local")) {
     return {
-      domain: "localhost",
+      domain: "cluster.local",
       reader: {
-        root: "https://reader.localhost", 
-        api: "https://reader.localhost/api"
+        root: "https://reader.cluster.local", 
+        api: "https://reader.cluster.local/api"
       },
       notes: {
-        root: "https://notes.localhost"
+        root: "https://notes.cluster.local"
       },
       search: {
-        root: "https://search.localhost"
+        root: "https://search.cluster.local"
       },
       budgeting: {
-        root: "https://budgeting.localhost",
-        api: "https://budget.localhost"
+        root: "https://budgeting.cluster.local",
+        api: "https://budget.cluster.local"
       },
       blob: {
-        api: "https://blob.localhost/api"
+        api: "https://blob.cluster.local/api"
       },
       central: {
-        root: "https://central.localhost", 
-        api: "https://central.localhost/api"
+        root: "https://central.cluster.local", 
+        api: "https://central.cluster.local/api"
       }
     };
   } else if (window.location.protocol === "https:") {
@@ -74,7 +74,7 @@ const init = () : EndpointDefinition => {
       },
       budgeting: {
         root: "http://localhost:8280",
-        api: "http://budget.localhost"
+        api: "http://budget.cluster.local"
       },
       blob: {
         api: "http://localhost:2002/api"
