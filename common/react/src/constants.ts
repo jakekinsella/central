@@ -89,17 +89,55 @@ const init = () : EndpointDefinition => {
 
 export const { domain, reader, notes, search, budgeting, blob, central } = init();
 
-export const colors = {
-  black: '#444',
-  black2: '#666',
-  lightBlack: '#999',
-  lighterBlack: '#aaa',
-  lightestBlack: '#bbb',
+export namespace Colors {
+  const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isLightMode = !isDarkMode;
 
-  whiteHover: '#f9f9f9',
-  whiteActive: '#f1f1f1',
+  export namespace Base {
+    export const black = '#444';
+    export const white = '#fff';
 
-  lightGray: '#eeeeee',
+    export const white1_5 = '#eee';
 
-  red: '#ef5350'
-};
+    export const black2 = '#666';
+    export const white2 = '#ccc';
+
+    export const lightBlack = '#999';
+    export const lighterBlack = '#aaa';
+    export const lightestBlack = '#bbb';
+
+    export const whiteHover = '#f9f9f9';
+    export const whiteActive = '#f1f1f1';
+
+    export const blackHover = '#111';
+    export const blackActive = '#111';
+
+    export const lightGray = '#eeeeee';
+
+    export const red = '#ef5350';
+  }
+
+  export namespace Text {
+    export const base = isLightMode ? Base.black : Base.white;
+    export const hover = isLightMode ? Base.blackHover : Base.whiteHover;
+    export const active = isLightMode ? Base.blackActive : Base.whiteActive;
+
+    export namespace Faint {
+      export const base = isLightMode ? Base.black2 : Base.white2;
+      export const hover = isLightMode ? Base.blackHover : Base.whiteHover;
+      export const active = isLightMode ? Base.blackActive : Base.whiteActive;
+    }
+
+    export namespace Inverted {
+      export const base = isDarkMode ? Base.black : Base.white;
+      export const hover = isDarkMode ? Base.blackHover : Base.whiteHover;
+      export const active = isDarkMode ? Base.blackActive : Base.whiteActive;
+    }
+  }
+
+  export namespace Container {
+    export const background = isLightMode ? Base.white : Base.black;
+    export const border = isLightMode ? Base.black : Base.white;
+    export const shadow = isLightMode ? Base.lightBlack : Base.lightBlack;
+  }
+}

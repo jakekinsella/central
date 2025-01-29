@@ -1,3 +1,3 @@
 import { Constants } from 'central';
 
-export const colors = Constants.colors
+export const Colors = Constants.Colors

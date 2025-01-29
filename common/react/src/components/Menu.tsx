@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { colors } from '../constants';
+import { Colors } from '../constants';
 
 const FloatingMenu = styled.div`
   position: relative;
@@ -18,7 +18,7 @@ const MenuContainer = styled.div`
 
   background-color: white;
 
-  border: 1px solid ${colors.black};
+  border: 1px solid ${Colors.Container.border};
   border-radius: 5px;
 `;
 
@@ -35,11 +35,11 @@ const MenuItem = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: ${colors.whiteHover};
+    background-color: ${Colors.Text.Inverted.hover};
   }
 
   &:active {
-    background-color: ${colors.whiteActive};
+    background-color: ${Colors.Text.Inverted.active};
   }
 `;
 

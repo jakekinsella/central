@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { colors } from '../constants';
+import { Colors } from '../constants';
 
 export const Submit = styled.button`
   width: 100%;
@@ -8,22 +8,22 @@ export const Submit = styled.button`
 
   cursor: pointer;
 
-  border: 1px solid ${colors.lightBlack};
+  border: 1px solid ${Colors.Container.border};
   border-radius: 5px;
 
-  background-color: white;
+  background-color: ${Colors.Container.background};
 
   font-size: 18px;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
 
-  color: ${colors.black};
+  color: ${Colors.Text.base};
 
   &:hover {
-    background-color: ${colors.whiteHover};
+    background-color: ${Colors.Text.Inverted.hover};
   }
 
   &:active {
-    background-color: ${colors.whiteActive};
+    background-color: ${Colors.Text.Inverted.active};
   }
 `;

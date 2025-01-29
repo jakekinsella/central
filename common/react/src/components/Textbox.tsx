@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { colors } from '../constants';
+import { Colors } from '../constants';
 
 export const Textbox = styled.input`
   display: block;
@@ -12,8 +12,11 @@ export const Textbox = styled.input`
   padding-left: 10px;
   padding-right: 10px;
 
-  border: 1px solid ${colors.lightBlack};
+  border: 1px solid ${Colors.Container.border};
   border-radius: 3px;
+
+  background: transparent;
+  color: ${Colors.Text.base};
 
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
