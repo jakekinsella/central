@@ -109,8 +109,8 @@ export namespace Colors {
     export const whiteHover = '#f9f9f9';
     export const whiteActive = '#f1f1f1';
 
-    export const blackHover = '#111';
-    export const blackActive = '#111';
+    export const blackHover = '#333';
+    export const blackActive = '#222';
 
     export const lightGray = '#eeeeee';
 
