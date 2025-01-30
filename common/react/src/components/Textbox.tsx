@@ -21,4 +21,8 @@ export const Textbox = styled.input`
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
+
+  &:focus {
+    outline: none;
+  }
 `;
