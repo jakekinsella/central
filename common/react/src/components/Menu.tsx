@@ -16,7 +16,7 @@ const MenuContainer = styled.div`
 
   width: 150px;
 
-  background-color: white;
+  background-color: ${Colors.Container.background};
 
   border: 1px solid ${Colors.Container.border};
   border-radius: 5px;
