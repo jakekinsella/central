@@ -9,20 +9,25 @@ build:
 clean:
 	cd server && make clean
 
-common-publish:
-	make -f build/Makefile common-publish
 
-common-publish-arm:
-	make -f build/Makefile common-publish-arm
+common-publish:
+	make -f deploy/Makefile image IMAGE=common_ocaml DOCKERFILE=~/Personal/central/build/docker/common/ocaml/Dockerfile
+	make -f deploy/Makefile image IMAGE=common_react DOCKERFILE=~/Personal/central/build/docker/common/react/Dockerfile
+
+cluster-publish:
+	make -f deploy/Makefile image publish IMAGE=server DOCKERFILE=~/Personal/central/build/docker/server/Dockerfile
+	make -f deploy/Makefile image publish IMAGE=ui DOCKERFILE=~/Personal/central/build/docker/ui/Dockerfile
+
 
 local-publish:
-	make -f build/local/Makefile publish
+	make -f deploy/Makefile image CLUSTER=server DOCKERFILE=~/Personal/central/build/docker/server/Dockerfile
 
 local-deploy:
 	make -f build/local/Makefile deploy
 
 local-teardown:
 	make -f build/local/Makefile teardown
+
 
 aws-init:
 	cd build/aws && make init
@@ -39,11 +44,12 @@ aws-build:
 aws-teardown:
 	cd build/aws && make teardown
 
-cluster-publish:
-	make -f build/Makefile publish
 
-cluster-deploy:
-	make -f build/Makefile deploy VERSION=$(VERSION)
+publish:
+	make -f deploy/Makefile publish IMAGE=$(CLUSTER) DOCKERFILE=$(DOCKERFILE)
 
-cluster-teardown:
-	make -f build/Makefile teardown
+deploy:
+	make -f deploy/Makefile deploy CLUSTER=$(CLUSTER) VERSION=$(VERSION)
+
+teardown:
+	make -f deploy/Makefile CLUSTER=$(CLUSTER) teardown
