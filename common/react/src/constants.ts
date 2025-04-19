@@ -9,7 +9,7 @@ interface EndpointDefinition {
 }
 
 const init = () : EndpointDefinition => {
-  if (window.location.protocol === "https:" && window.location.host.includes("cluster.local")) {
+  if (typeof window !== "undefined" && window.location.protocol === "https:" && window.location.host.includes("cluster.local")) {
     return {
       domain: "cluster.local",
       reader: {
@@ -34,7 +34,7 @@ const init = () : EndpointDefinition => {
         api: "https://central.cluster.local/api"
       }
     };
-  } else if (window.location.protocol === "https:") {
+  } else if (typeof window !== "undefined" && window.location.protocol === "https:") {
     return {
       domain: "jakekinsella.com",
       reader: {
@@ -90,7 +90,7 @@ const init = () : EndpointDefinition => {
 export const { domain, reader, notes, search, budgeting, blob, central } = init();
 
 export namespace Colors {
-  const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDarkMode = typeof window !== "undefined" && window.matchMedia('(prefers-color-scheme: dark)').matches;
   const isLightMode = !isDarkMode;
 
   export namespace Base {
